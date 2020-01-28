@@ -10,3 +10,17 @@ C = BoolVar('C')
 # following expression:
 
 # (((A => B) & (B => C)) => (A => C))
+
+# the innermost formulas
+f1 = Implies(A,B)
+f2 = Implies(B,C)
+f3 = Implies(A,C)
+
+# combining ((A => B) & (B => C))
+f4 = And(f1,f2)
+
+# final formula
+f5 = Implies(f4,f3)
+print(f5)
+print(f5.format())
+print()
